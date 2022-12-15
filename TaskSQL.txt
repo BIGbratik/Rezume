@@ -1,0 +1,29 @@
+Очевидно, что по заданным параметрам существует две сущности - "Продукты" и "Категории".
+Их связь - "многие - ко - многим"
+Для реализации такой связи корректным образом необходимо создать промежуточную сущность "ПродуктыКатегории" 
+(Далее показан код создания структуры и запрос на получение итогового результата)
+
+CREATE TABLE Products(
+	Id INT PRIMARY KEY, 
+	Name VARCHAR(200))
+
+CREATE TABLE Categories(
+	Id INT PRIMARY KEY,
+	Name VARCHAR(200))
+
+CREATE TABLE ProductsCategories(
+	Id INT PRIMARY KEY,
+	ProductId INT,
+	CategoryId INT,
+	CONSTRAINT FK_ProductsCategories_To_Products FOREIGN KEY (ProductId)  REFERENCES Products (Id) ON DELETE CASCADE,
+	CONSTRAINT FK_ProductsCategories_To_Categories FOREIGN KEY (CategoryId)  REFERENCES Categories (Id) ON DELETE CASCADE)
+
+SELECT Products.Name AS ProductName, Categories.Name AS CategoryName 
+	FROM ProductsCategories
+	JOIN Products ON ProductsCategories.ProductId=Products.Id
+	LEFT JOIN Categories ON ProductsCategories.CategoryId =Categories.Id
+UNION
+	SELECT Products.Name AS ProductName, NULL AS CategoryName  FROM Products
+	WHERE Products.Id NOT IN (SELECT DISTINCT ProductsCategories.ProductId FROM ProductsCategories)
+ORDER BY Products.Name
+

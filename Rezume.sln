@@ -5,7 +5,12 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rezume", "Rezume\Rezume.csproj", "{69A3056B-7375-4933-BB3F-CFCB9AFBC4FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AreaTest", "AreaTest\AreaTest.csproj", "{2BB5777C-6977-4043-B922-94EB9534FDDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AreaTest", "AreaTest\AreaTest.csproj", "{2BB5777C-6977-4043-B922-94EB9534FDDE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Задание MS SQL", "Задание MS SQL", "{E8E04731-E9F1-47FF-B3FC-FC354400D3B5}"
+	ProjectSection(SolutionItems) = preProject
+		TaskSQL.txt = TaskSQL.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

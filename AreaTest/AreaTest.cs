@@ -4,7 +4,7 @@ using Rezume;
 namespace AreaTest
 {
     [TestClass]
-    public class UnitTest1
+    public class AreaTest
     {
         [TestMethod]
         public void TestRightTriangleCounting()
